@@ -4,7 +4,7 @@ import dev.hashimc.hashi.toolkit.task.HashiTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
-class ToolkitPlugin : Plugin<Project> {
+open class ToolkitShared : Plugin<Project> {
 
     override fun apply(target: Project) {
         target.tasks.register("info", HashiTask::class.java) { task ->

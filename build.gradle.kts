@@ -15,8 +15,12 @@ dependencies {
 
 gradlePlugin {
     plugins {
-        create("hashi-toolkit") {
-            id = "dev.hashimc.hashi.toolkit"
+        create("toolkit-plugin") {
+            id = "dev.hashimc.hashi.toolkit.plugin"
+            implementationClass = "dev.hashimc.hashi.toolkit.ToolkitPluginDev"
+        }
+        create("toolkit-module") {
+            id = "dev.hashimc.hashi.toolkit.module"
             implementationClass = "dev.hashimc.hashi.toolkit.ToolkitPlugin"
         }
     }
