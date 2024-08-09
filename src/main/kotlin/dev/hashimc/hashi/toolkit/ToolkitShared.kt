@@ -1,10 +1,11 @@
 package dev.hashimc.hashi.toolkit
 
 import dev.hashimc.hashi.toolkit.task.HashiTask
-import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.jetbrains.kotlin.gradle.plugin.KotlinCompilation
+import org.jetbrains.kotlin.gradle.plugin.KotlinCompilerPluginSupportPlugin
 
-open class ToolkitShared : Plugin<Project> {
+abstract class ToolkitShared : KotlinCompilerPluginSupportPlugin {
 
     override fun apply(target: Project) {
         target.tasks.register("info", HashiTask::class.java) { task ->
@@ -15,6 +16,10 @@ open class ToolkitShared : Plugin<Project> {
                 println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
             }
         }
+    }
+
+    override fun isApplicable(kotlinCompilation: KotlinCompilation<*>): Boolean {
+        return true
     }
 
 }
